@@ -2,6 +2,7 @@
 
 <% @contestants.each do |contestant| %>
   <%= contestant.name %>
+  Projects:
   <% contestant.projects.each do |project| %>
     <%= project.name %>
   <% end %>

@@ -30,7 +30,6 @@ RSpec.describe 'Contestant Index Page' do
       visit '/contestants'
       expect(page).to have_content(@upholstery_tux.name)
       expect(page).to_not have_content(@boardfit.name)
-
       expect(@jay.name).to appear_before(@lit_fit.name)
     end
   end
