@@ -12,6 +12,7 @@ RSpec.describe 'Projects Show Page' do
     @kentaro = Contestant.create(name: "Kentaro Kameyama", age: 30, hometown: "Boston", years_of_experience: 8)
 
     @upholstery_tux.contestants << @kentaro
+    @upholstery_tux.contestants << @jay
   end
   describe 'As a user, when I visit a project show page' do
     it 'I see the name and material of the project' do
@@ -33,11 +34,18 @@ RSpec.describe 'Projects Show Page' do
     it 'and the number of contestants tht have worked on that project' do
       visit "/projects/#{@upholstery_tux.id}"
 
-      expect(page).to have_content("Total contestants on this project: 1")
+      expect(page).to have_content("Total contestants on this project: 2")
 
       visit "/projects/#{@lit_fit.id}"
 
       expect(page).to have_content("Total contestants on this project: 0")
+    end
+
+    it 'and the average experience of those contestants' do
+      visit "/projects/#{@upholstery_tux.id}"
+
+      expect(page).to have_content(@upholstery_tux.contestant_avg_exp)
+      expect(page).to have_content(10.5)
     end
   end
 end

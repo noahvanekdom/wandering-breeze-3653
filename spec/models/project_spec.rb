@@ -27,7 +27,7 @@ RSpec.describe Project, type: :model do
 
     it '#contestant_avg_exp' do
 
-      expect(@upholstery_tux.contestant_avg_exp). to eq 0
+      expect(@upholstery_tux.contestant_avg_exp). to eq 13
     end
   end
 end
