@@ -8,5 +8,4 @@ class Project < ApplicationRecord
   def contestant_count
     self.contestants.count
   end
-
 end
